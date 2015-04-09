@@ -1,6 +1,6 @@
 require 'database_cleaner'
 require 'capybara/rspec'
-require 'cucumber'
+# require 'cucumber'
 
 ENV['RACK_ENV'] = 'test'
 require_relative '../app/server'
