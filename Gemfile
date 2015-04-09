@@ -3,8 +3,6 @@ ruby '2.2.0'
 
 group :test do
   gem 'rubocop-rspec'
-  gem 'rspec'
-  gem 'cucumber'
   gem 'rubocop'
   gem 'capybara'
 end
