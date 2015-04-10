@@ -12,7 +12,7 @@ post '/users' do
     password_confirmation: params[:password_confirmation])
   if @user.save
     session[:user_id] = @user.id
-    send_simple_message(user.email)
+    send_simple_message(@user.email)
     redirect to('/')
   else
     flash.now[:errors] = @user.errors.full_messages
@@ -23,8 +23,8 @@ end
 def send_simple_message(email)
   RestClient.post "https://api:#{ENV['MAILGUN_API_KEY']}"\
   "@api.mailgun.net/v3/#{ENV['MAILGUN_DOMAIN']}/messages",
-  from: "Wikipedia 3.0 <mailgun@#{ENV['MAILGUN_DOMAIN']}>",
+  from: "Mayor of London <mailgun@#{ENV['MAILGUN_DOMAIN']}>",
   to: "#{email}, #{email}",
-  subject: 'Liversedge is a Hockey Team',
-  text: 'Because It Is'
+  subject: 'UKIP for London. Take a stand in the General Election 2015',
+  text: 'Dear London resident, on May 7, 2015 the long-awaited general election will take place. You know what to do.'
 end
